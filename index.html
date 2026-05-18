@@ -947,8 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const paypalURL = `https://www.paypal.com/paypalme/LBPQUZDWF7LMG/${depositAmt}`;
         statusEl.className = 'form-status success';
         statusEl.innerHTML = `
-          ✅ <strong>Request sent!</strong> To complete your booking, a small deposit is required. This helps us reserve your spot and get everything ready for your vehicle — and it goes toward your total! Deposits are 20% of your package cost and vary by service.<br><br>
-          <strong style="color:#f5d76e;">Deposit due: $${depositAmt}</strong><br><br>
+          ✅ <strong>Request sent!</strong> 
           <a href="${paypalURL}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:10px 18px;background:linear-gradient(135deg,#f5d76e,#f8c547);color:#0a1328;font-weight:800;border-radius:10px;text-decoration:none;">Pay Deposit via PayPal</a>
           <div style="margin-top:10px;font-size:13px;color:#cbd6e8;">Prefer to pay in person or over the phone? Call us at <a href="tel:+16716464569" style="color:#cfe1ff;font-weight:800;">(671) 646-4569</a></div>
         `;
