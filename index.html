@@ -1010,10 +1010,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailsBox = document.getElementById('package-details');
   const compareBody = document.getElementById('pkg-compare-body');
   if (!select || !detailsBox) return;
+  const DEPOSITS = {
+    "Super Wash - $75": 15,
+    "IShine - $165": 35,
+    "Deluxe - $200": 40,
+    "Executive Interior - $245": 50,
+    "Executive Works - $395": 80
+  };
   function renderSelected() {
     const key = select.options[select.selectedIndex]?.text || "";
     const items = PKG[key];
-    detailsBox.innerHTML = items ? `<div class="dbox-title">What's included</div><ul class="dropdown-list">${items.map(i=>`<li>${i}</li>`).join("")}</ul>` : "";
+    const deposit = DEPOSITS[key];
+    detailsBox.innerHTML = items ? `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+        <div class="dbox-title" style="margin:0;">What's included</div>
+        <div style="background:rgba(245,215,110,.15);border:1px solid rgba(245,215,110,.35);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:800;color:#f5d76e;">
+          Deposit due: $${deposit}
+        </div>
+      </div>
+      <ul class="dropdown-list">${items.map(i=>`<li>${i}</li>`).join("")}</ul>` : "";
   }
   if (compareBody && !compareBody.dataset.ready) {
     compareBody.innerHTML = Object.entries(PKG).map(([name, items]) => `<div class="pkg-compare-card"><div class="pkg-compare-name">${name}</div><ul class="dropdown-list">${items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
