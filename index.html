@@ -1021,13 +1021,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = PKG[key];
     const deposit = DEPOSITS[key];
     detailsBox.innerHTML = items ? `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
-        <div class="dbox-title" style="margin:0;">What's included</div>
-        <div style="background:rgba(245,215,110,.15);border:1px solid rgba(245,215,110,.35);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:800;color:#f5d76e;">
-          Deposit due: $${deposit}
-        </div>
-      </div>
-      <ul class="dropdown-list">${items.map(i=>`<li>${i}</li>`).join("")}</ul>` : "";
+      <div class="dbox-title" style="margin-bottom:8px;">What's included</div>
+      <ul class="dropdown-list">${items.map(i=>`<li>${i}</li>`).join("")}</ul>
+      <div style="margin-top:12px;background:rgba(245,215,110,.12);border:1px solid rgba(245,215,110,.40);border-radius:10px;padding:10px 14px;font-size:13px;font-weight:700;color:#f5d76e;line-height:1.6;">
+        💳 <strong>Reminder:</strong> A $${deposit} deposit is required to lock in your appointment — it goes straight toward your total!
+      </div>` : "";
   }
   if (compareBody && !compareBody.dataset.ready) {
     compareBody.innerHTML = Object.entries(PKG).map(([name, items]) => `<div class="pkg-compare-card"><div class="pkg-compare-name">${name}</div><ul class="dropdown-list">${items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
